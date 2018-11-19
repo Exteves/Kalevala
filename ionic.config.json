@@ -1,0 +1,7 @@
+{
+  "name": "ceres",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
