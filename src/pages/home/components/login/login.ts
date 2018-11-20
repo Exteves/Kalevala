@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
-/**
- * Generated class for the LoginComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'login',
   templateUrl: 'login.html'
