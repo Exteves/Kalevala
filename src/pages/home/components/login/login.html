@@ -1,0 +1,25 @@
+<form (ngSubmit)="signIn()" [formGroup]="loginForm">
+  <ion-list>
+    <ion-item no-padding>
+      <ion-input
+      type="email"
+      placeholder="Email"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding>
+      <ion-input
+      type="password"
+      placeholder="Senha"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+      <button
+      type="button"
+      ion-button
+      block
+      medium
+      color="primary"
+      [disabled]="!loginForm.valid"></button>
+    </ion-item>
+  </ion-list>
+</form>
