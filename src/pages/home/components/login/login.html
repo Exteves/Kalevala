@@ -2,28 +2,59 @@
   <ion-list>
     <ion-item no-padding>
       <ion-input
-      type="email"
-      placeholder="Email"
-      text-center></ion-input>
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+        text-center>
+      </ion-input>
     </ion-item>
+
+    <!-- <ion-item
+      class="validation"
+      no-padding
+      no-margin
+      no-lines
+      *ngIf="
+      loginForm.controls.email.invalid
+      && loginForm.controls.email.touched">
+      <p *ngIf="loginForm.get('email').hasError('email')
+      && !loginForm.get('email').hasError('error')">
+        Você parece estar bêbado! Esse e-mail é invaĺido! Hahaha
+      </p>
+      <p *ngIf="loginForm.get('email').hasError('required')">Não se esqueça dese campo!  </p>
+    </ion-item> -->
 
     <ion-item no-padding>
       <ion-input
-      type="password"
-      placeholder="Senha"
-      text-center></ion-input>
+        type="password"
+        placeholder="Senha"
+        formControlName="senha"
+        text-center>
+      </ion-input>
     </ion-item>
+
+    <!-- <ion-item
+      class="validation"
+      no-padding
+      no-lines
+      *ngIf="loginForm.controls.password.invalid
+      && loginForm.controls.password.touched">
+      <p *ngIf="loginForm.get('senha').hasError('minlength')
+        && !loginForm.get('senha').hasError('required')
+        ">Senha invalida (minimo 6 caracteres)</p>
+      <p *ngIf="loginForm.get('password').hasError('required')">Campo obrigatorio</p>
+    </ion-item> -->
 
     <ion-item no-lines>
       <button
-      type="button"
+      type="submit"
       ion-button
       block
       medium
       color="primary"
-      [disabled]="!loginForm.valid">
-    Entre e tome uma cerveja!
-    </button>
+      [disabled]="loginForm.invalid">
+        Entre e tome uma cerveja!
+      </button>
     </ion-item>
   </ion-list>
 </form>
