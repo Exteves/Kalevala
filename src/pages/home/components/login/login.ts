@@ -21,12 +21,17 @@ export class LoginComponent {
   ngOnInit(){
     this.loginForm = this.formBuilder.group({
       email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
-      senha: new FormControl('', Validators.compose([Validators.required, Validators.minLength(4)]))
+      passwd: new FormControl('', Validators.compose([Validators.required, Validators.minLength(4)]))
     });
   }
 
   signIn(){
-    console.log(this.authLogin.loginIn(this.loginForm.value));
+    console.log(this.loginForm.value);
+    this.authLogin.loginIn(this.loginForm.value).subscribe(
+      data => {
+        console.log(data);
+      }
+    );
   }
 
 }

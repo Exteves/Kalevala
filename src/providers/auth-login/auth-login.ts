@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../../model/User';
@@ -10,15 +10,19 @@ export class AuthLoginProvider {
 
   private baseUrl = "http://localhost:8080/";
 
-  private headers = new Headers();
+  private headers = new HttpHeaders;
 
   constructor(public http: HttpClient) {
     this.headers.append("Accept", 'application/json');
-    this.headers.append('Content-Type', 'application/json');
   }
 
   loginIn(user:User){
     return this.http
-      .post(this.baseUrl + 'login', user, {headers: {'Content-Type' : 'application/json'}})
+      .post(this.baseUrl + 'login', [user.email, user.passwd], {headers: this.headers})
+  }
+
+  register(user:User){
+    return this.http
+    .post(this.baseUrl + 'register', user, {headers: this.headers})
   }
 }
