@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="signUp()" [formGroup]="registerForm">
+    <ion-list>
+      <ion-item no-padding>
+          <ion-input type="text" placeholder="Nome" formControlName="name"></ion-input>
+        </ion-item>
+        
+      <ion-item no-padding>
+        <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+      </ion-item>  
+  
+      <ion-item no-padding>
+        <ion-input type="password" placeholder="Senha" formControlName="passwd"></ion-input>
+      </ion-item>
+  
+      <ion-item no-lines>
+        <button
+          ion-button
+          type="submit"
+          block
+          medium
+          color="secondary"
+          [disabled]="registerForm.invalid">
+          Cadastrar
+        </button>
+      </ion-item>
+  
+    </ion-list>
+  </form>
+</ion-content>

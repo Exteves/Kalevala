@@ -11,6 +11,11 @@ import { AuthLoginProvider } from '../providers/auth-login/auth-login';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { StorageProvider } from '../providers/storage/storage';
+import { IonicStorageModule } from '@ionic/storage';
+import { RegisterPage } from '../pages/register/register';
+import { RegisterPageModule } from '../pages/register/register.module';
+import { TastingProvider } from '../providers/tasting/tasting';
 
 @NgModule({
   declarations: [
@@ -22,19 +27,24 @@ import { HttpModule } from '@angular/http';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    IonicStorageModule.forRoot(),
+    RegisterPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    LoginComponent
+    LoginComponent,
+    RegisterPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthLoginProvider
+    AuthLoginProvider,
+    StorageProvider,
+    TastingProvider
   ]
 })
 export class AppModule {}
