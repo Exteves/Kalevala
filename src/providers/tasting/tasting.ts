@@ -20,8 +20,7 @@ export class TastingProvider {
   }
 
   createTasting(key : string){
-    this.headers.set('key', key);
+    this.headers = this.headers.append('key', key)
     return this.http.post<Tasting>(this.baseUrl + 'tasting', {headers: this.headers})
   }
-
 }

@@ -16,6 +16,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { RegisterPage } from '../pages/register/register';
 import { RegisterPageModule } from '../pages/register/register.module';
 import { TastingProvider } from '../providers/tasting/tasting';
+import { CountryProvider } from '../providers/country/country';
+import { BeerProvider } from '../providers/beer/beer';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { TastingProvider } from '../providers/tasting/tasting';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthLoginProvider,
     StorageProvider,
-    TastingProvider
+    TastingProvider,
+    CountryProvider,
+    BeerProvider
   ]
 })
 export class AppModule {}

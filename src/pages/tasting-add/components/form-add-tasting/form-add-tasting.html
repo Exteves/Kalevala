@@ -1,0 +1,49 @@
+<form (ngSubmit)="addTasting()" [formGroup]="tastingForm">
+  <ion-list>
+    <ion-item no-lines no-padding no-margin>
+      <ion-select formControlName="location">
+        <ion-options value=""></ion-options>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines no-padding no-margin>
+      <ion-textarea
+        type="text"
+        placeholder="Anotações"
+        formControlName="notes"
+        text-center>
+      </ion-textarea>
+    </ion-item>
+
+    <ion-item no-lines no-padding no-margin>
+      <ion-input
+      type="number"
+      placeholder="Temperatura em celsius"
+      formControlName="celsius"
+      text-center>  
+      </ion-input>     
+    </ion-item>
+    
+    <ion-item no-lines no-padding no-margin>
+      <ion-select formControlName="rating">
+        <ion-options value=""></ion-options>
+      </ion-select>      
+    </ion-item>
+
+    <ion-item no-lines no-padding no-margin>
+      <ion-select formControlName="beer"> 
+        <ion-options value=""></ion-options>       
+      </ion-select>    
+    </ion-item>
+
+    <ion-item no-padding no-margin no-lines>
+      <button
+      type="submit"
+      ion-button
+      full
+      color="primary">
+        Adicionar
+      </button>
+    </ion-item>
+  </ion-list>
+</form>

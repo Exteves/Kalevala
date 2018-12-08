@@ -4,6 +4,7 @@ import { AuthLoginProvider } from '../../providers/auth-login/auth-login';
 import { StorageProvider } from '../../providers/storage/storage';
 import { User } from '../../model/User';
 import { TastingProvider } from '../../providers/tasting/tasting';
+import { TastingAddPage } from '../tasting-add/tasting-add';
 
 @IonicPage()
 @Component({
@@ -50,6 +51,10 @@ export class TastingListPage {
         console.log(data)
         this.navCtrl.pop()
       })
+  }
+
+  public addTasting(){
+    this.navCtrl.push(TastingAddPage)
   }
 
 }
