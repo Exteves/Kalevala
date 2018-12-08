@@ -13,7 +13,7 @@ export class AuthLoginProvider {
   constructor(
     private http: HttpClient
     ) {
-    this.headers.append("Accept", 'application/json');
+    this.headers = this.headers.append("Accept", 'application/json');
   }
 
   loginIn(user:User){

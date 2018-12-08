@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { AuthLoginProvider } from '../../providers/auth-login/auth-login';
 import { StorageProvider } from '../../providers/storage/storage';
 import { User } from '../../model/User';
+import { TastingProvider } from '../../providers/tasting/tasting';
 
 @IonicPage()
 @Component({
@@ -17,7 +18,8 @@ export class TastingListPage {
     private navCtrl: NavController,
     private authLogin: AuthLoginProvider,
     private storage: StorageProvider,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private taste: TastingProvider
     ) {
   }
 
@@ -25,6 +27,11 @@ export class TastingListPage {
     this.storage.get('user').then((usr) => {
       this.user = usr;
       console.log(this.user)
+      console.log(this.user.token)      
+      this.taste.getTastingList(this.user)
+      .subscribe(data => {
+        console.log(data);        
+      })
     }).catch((err) => {
       this.alertController.create({
         title: 'Erro',
