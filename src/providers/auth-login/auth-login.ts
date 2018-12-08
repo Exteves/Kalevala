@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 import { User } from '../../model/User';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch';
-import '../base-url'
 
 @Injectable()
 export class AuthLoginProvider {
 
   private headers = new HttpHeaders;
+  private baseUrl = "http://localhost:8080/";
 
   constructor(
     private http: HttpClient
@@ -18,16 +18,17 @@ export class AuthLoginProvider {
 
   loginIn(user:User){
     return this.http
-      .post(baseUrl + 'login', [user.email, user.passwd], {headers: this.headers})
+      .post(this.baseUrl + 'login', [user.email, user.passwd], {headers: this.headers})
   }
 
   register(user:User){
     return this.http
-    .post(baseUrl + 'register', user, {headers: this.headers})
+    .post(this.baseUrl + 'register', user, {headers: this.headers})
   }
 
   logout(user : User){
+    this.headers.append("key", user.token)
     return this.http
-    .post(baseUrl + 'logout', user.token, {headers: this.headers})
+    .post(this.baseUrl + 'logout', {headers: this.headers})
   }
 }

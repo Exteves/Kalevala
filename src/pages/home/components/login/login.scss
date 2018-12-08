@@ -1,3 +1,10 @@
 login {
-
+    .item-inner{
+        margin: 0px;
+        padding: 0px!important;
+    }
+        display: flex;
+        justify-content: space-around;
+        min-height: 100%;
+        flex-direction: column;
 }

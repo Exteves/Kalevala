@@ -1,6 +1,6 @@
 <form (ngSubmit)="signIn()" [formGroup]="loginForm">
   <ion-list>
-    <ion-item no-padding>
+    <ion-item no-lines no-padding>
       <ion-input
         type="email"
         placeholder="Email"
@@ -24,7 +24,7 @@
       <p *ngIf="loginForm.get('email').hasError('required')">Não se esqueça dese campo!  </p>
     </ion-item>
 
-    <ion-item no-padding>
+    <ion-item no-lines no-padding>
       <ion-input
         type="password"
         placeholder="Senha"
@@ -45,26 +45,23 @@
       <p *ngIf="loginForm.get('password').hasError('required')">Campo obrigatorio</p>
     </ion-item> -->
 
-    <ion-item no-lines>
+    <ion-item no-padding no-margin no-lines>
       <button
       type="submit"
       ion-button
-      block
-      medium
-      color="primary"
-      [disabled]="loginForm.invalid">
+      full
+      color="primary">
         Entre e tome uma cerveja!
       </button>
     </ion-item>
   </ion-list>
 </form>
 <ion-row>
-  <ion-col no-lines>
+  <ion-col no-padding no-lines>
     <button
     type="button"
     ion-button
-    block
-    medium
+    full
     (click)="signUp()"
     color="primary">
       Cadastrar

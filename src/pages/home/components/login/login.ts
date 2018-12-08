@@ -37,10 +37,21 @@ export class LoginComponent {
     this.user = this.loginForm.value;
     this.authLogin.loginIn(this.user)
     .subscribe(
-      data => {
+      data => {        
         this.user.token = data['resp']
-        this.storage.set('user', this.user)
-        this.navCtrl.push(TastingListPage)
+        if(this.user.token){
+          this.storage.set('user', this.user)
+          this.navCtrl.push(TastingListPage)
+        }else{
+          this.alertController.create({
+            title: 'Deu ruim',
+            message: 'Não foi possível efetuar o login',
+            buttons: [{
+              text: 'Tentar novamente',
+              role: 'cancel'
+            }]
+          }).present()
+        }
       }
     ),
     error => {
