@@ -23,7 +23,7 @@ export class AuthLoginProvider {
 
   register(user:User){
     return this.http
-    .post(this.baseUrl + 'register', user, {headers: this.headers})
+    .post(this.baseUrl + 'register', user)
   }
 
   logout(user : User){

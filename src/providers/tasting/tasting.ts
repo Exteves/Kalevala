@@ -8,19 +8,19 @@ import { User } from '../../model/User';
 export class TastingProvider {
 
   private headers = new HttpHeaders();
-  private baseUrl = "http://localhost:8080/";
+  private baseUrl = "http://localhost:8080/tasting/";
 
   constructor(public http: HttpClient) {
     this.headers = this.headers.append('Accept', 'application/json');
   }
 
-  getTastingList(user: User) : Observable<Tasting[]>{
-    this.headers = this.headers.append('key', user.token)
-    return this.http.get<Tasting[]>(this.baseUrl + 'tasting/user', {headers: this.headers})
+  getTastingList(token: string) : Observable<Tasting[]>{
+    this.headers = this.headers.append('key', token)
+    return this.http.get<Tasting[]>(this.baseUrl + 'user', {headers: this.headers})
   }
 
-  createTasting(key : string){
+  createTasting(key : string, tasting : Tasting){
     this.headers = this.headers.append('key', key)
-    return this.http.post<Tasting>(this.baseUrl + 'tasting', {headers: this.headers})
+    return this.http.post<Tasting>(this.baseUrl, tasting,{headers: this.headers})
   }
 }

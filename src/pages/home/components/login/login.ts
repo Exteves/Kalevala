@@ -34,14 +34,14 @@ export class LoginComponent {
   }
 
   signIn(){
-    this.user = this.loginForm.value;
+    this.user = this.loginForm.value
     this.authLogin.loginIn(this.user)
     .subscribe(
-      data => {        
+      data => {
         this.user.token = data['resp']
         if(this.user.token){
           this.storage.set('user', this.user)
-          this.navCtrl.push(TastingListPage)
+          this.navCtrl.push(TastingListPage, { token : this.user.token})
         }else{
           this.alertController.create({
             title: 'Deu ruim',
@@ -57,7 +57,7 @@ export class LoginComponent {
     error => {
       this.alertController.create({
         title: 'Erro',
-        message: error,
+        message: 'Azedou no login',
         buttons: [{
           text: 'Tentar novamente',
           role: 'cancel'

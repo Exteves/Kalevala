@@ -24,6 +24,11 @@ export class FormAddTastingComponent {
         console.log(data);        
       })
 
+      this.location.getCountryList()
+      .subscribe(data => {
+        console.log(data);        
+      })
+
     this.tastingForm = this.formBuilder.group({
       location: new FormControl('', Validators.compose([Validators.required])),
       notes: new FormControl('', Validators.compose([Validators.required])),
@@ -35,10 +40,6 @@ export class FormAddTastingComponent {
 
   addTasting(){
     this.tasting = this.tastingForm.value
-    this.location.getCountryList()
-      .subscribe(data => {
-        console.log(data);        
-      })
   }
 
 }

@@ -1,17 +1,24 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Beer } from '../../model/Beer';
 
-/*
-  Generated class for the BeerProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class BeerProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello BeerProvider Provider');
+  private headers = new HttpHeaders();
+  private baseUrl = "http://localhost:8080/beer";
+
+  constructor(public http: HttpClient) {    
+    this.headers = this.headers.append('Accept', 'application/json');
+  }
+
+  getBeerList() : Observable<Beer[]>{
+    return this.http.get<Beer[]>(this.baseUrl)
+  }
+
+  createBeer(beer : Beer){
+    return this.http.post<Beer>(this.baseUrl, beer)
   }
 
 }
