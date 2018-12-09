@@ -1,0 +1,101 @@
+<form (ngSubmit)="addBeer()" [formGroup]="beerForm">
+  <ion-list>
+    <ion-item no-lines no-padding no-margin>
+      <ion-input
+      formControlName="name"
+      type="text"
+      placeholder="Nome do rótulo"
+      text-center>
+      </ion-input>
+    </ion-item>
+
+    <ion-item no-lines no-padding no-margin>
+      <ion-input
+      formControlName="brewery"
+      type="text"
+      placeholder="Cervejaria"
+      text-center>
+      </ion-input>
+    </ion-item>
+
+    <ion-item no-lines no-padding no-margin>
+      <ion-input
+      formControlName="price"
+      type="number"
+      placeholder="Preço"
+      text-center>
+      </ion-input>
+    </ion-item>
+
+    <ion-item no-lines no-padding no-margin>
+      <ion-select formControlName="countryOrigin">
+        <ion-options value=""></ion-options>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines no-padding no-margin>
+      <ion-input
+      formControlName="abv"
+      type="number"
+      placeholder="Alcool por volume"
+      text-center>
+      </ion-input>
+    </ion-item>
+
+    <ion-item no-lines no-padding no-margin>
+      <ion-input
+      formControlName="ibu"
+      type="number"
+      placeholder="Unidade internacional de amargor"
+      text-center>
+      </ion-input>
+    </ion-item>
+    
+    <ion-item no-lines no-padding no-margin>
+      <ion-select formControlName="color">
+        <ion-options value=""></ion-options>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines no-padding no-margin>
+      <ion-select formControlName="packing">
+        <ion-options value=""></ion-options>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines no-padding no-margin>
+      <ion-select formControlName="style">
+        <ion-options value=""></ion-options>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines no-padding no-margin>
+      <ion-select formControlName="aroma">
+        <ion-options value=""></ion-options>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines no-padding no-margin>
+      <ion-select formControlName="flavor">
+        <ion-options value=""></ion-options>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item no-lines no-padding no-margin>
+      <ion-textarea
+      formControlName="beerHead"
+      placeholder="Unidade internacional de amargor">
+      </ion-textarea>
+    </ion-item>
+
+    <ion-item no-padding no-margin no-lines>
+      <button
+      type="submit"
+      ion-button
+      full
+      color="primary">
+        Adicionar
+      </button>
+    </ion-item>
+  </ion-list>
+</form>
