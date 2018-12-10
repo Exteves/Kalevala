@@ -40,7 +40,6 @@ export class LoginComponent {
       data => {
         this.user.token = data['resp']
         if(this.user.token){
-          this.storage.set('user', this.user)
           this.navCtrl.push(TastingListPage, { token : this.user.token})
         }else{
           this.alertController.create({
@@ -52,6 +51,9 @@ export class LoginComponent {
             }]
           }).present()
         }
+      },
+      complete => {
+        this.storage.set('user', this.user)
       }
     ),
     error => {

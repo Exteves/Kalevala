@@ -27,6 +27,10 @@ export class TastingListPage {
   }
 
   ngOnInit(){
+    this.storage.get('user').then((usr) => {
+      this.user = usr 
+      console.log(this.user);
+    })
     // this.storage.get('user').then((usr) => {
     //   console.log(usr)
     //   this.user = usr      

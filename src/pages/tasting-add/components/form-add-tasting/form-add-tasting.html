@@ -2,7 +2,7 @@
   <ion-list>
     <ion-item no-lines no-padding no-margin>
       <ion-select formControlName="location">
-        <ion-options value=""></ion-options>
+        <ion-option *ngFor="let location of getLocations()" [value]="location.id">{{ location.name }}</ion-option>
       </ion-select>
     </ion-item>
 
@@ -19,21 +19,21 @@
       <ion-input
       type="number"
       placeholder="Temperatura em celsius"
-      formControlName="celsius"
+      formControlName="beerDegrees"
       text-center>  
       </ion-input>     
     </ion-item>
     
     <ion-item no-lines no-padding no-margin>
       <ion-select formControlName="rating">
-        <ion-options value=""></ion-options>
+        <ion-option *ngFor="let rating of getRatings()" [value]="rating">{{ rating }}</ion-option>
       </ion-select>      
     </ion-item>
 
     <ion-item no-lines no-padding no-margin>
       <ion-select formControlName="beer"> 
-        <ion-options value=""></ion-options>       
-      </ion-select>    
+        <ion-option *ngFor="let beer of getBeers()" [value]="beer.id">{{ beer.name }}</ion-option>       
+      </ion-select> 
     </ion-item>
 
     <ion-item no-padding no-margin no-lines>

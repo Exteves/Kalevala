@@ -28,6 +28,8 @@ export class AuthLoginProvider {
 
   logout(user : User){
     this.headers = this.headers.append("key", user.token)
+    console.log(this.headers.getAll('key'));
+    
     return this.http
     .post(this.baseUrl + 'logout', {headers: this.headers})
   }

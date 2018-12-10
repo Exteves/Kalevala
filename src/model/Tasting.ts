@@ -4,6 +4,5 @@ export interface Tasting{
     notes: String,
     beerDegrees: number,
     rating: number,
-    beer: number,
-    usr: number
+    beer: number
 }

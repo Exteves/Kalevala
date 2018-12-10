@@ -20,6 +20,6 @@ export class TastingProvider {
 
   createTasting(key : string, tasting : Tasting){
     this.headers = this.headers.append('key', key)
-    return this.http.post<Tasting>(this.baseUrl, tasting,{headers: this.headers})
+    return this.http.post<Tasting>(this.baseUrl, JSON.stringify(tasting), {headers: this.headers})
   }
 }

@@ -1,0 +1,59 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ beer?.name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content text-center padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <p>{{ beer.brewery }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <p>{{ beer.price }}</p>
+      </ion-col>
+      <ion-col col-6>
+        <p>{{ beer.countryOrigin }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <p>{{ beer.abv }}</p>
+      </ion-col>
+      <ion-col col-6>
+        <p>{{ beer.ibu }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <p>{{ beer.color }}</p>
+      </ion-col>
+      <ion-col col-6>
+        <p>{{ beer.packing }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <p>{{ beer.style }}</p>
+      </ion-col>
+      <ion-col col-6>
+        <p>{{ beer.aroma }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <p>{{ beer.flavor }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <p>{{ beer.beerHead }}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
