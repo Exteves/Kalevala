@@ -18,6 +18,11 @@ import { RegisterPageModule } from '../pages/register/register.module';
 import { TastingProvider } from '../providers/tasting/tasting';
 import { CountryProvider } from '../providers/country/country';
 import { BeerProvider } from '../providers/beer/beer';
+import { ColorProvider } from '../providers/color/color';
+import { PackingProvider } from '../providers/packing/packing';
+import { StyleProvider } from '../providers/style/style';
+import { AromaProvider } from '../providers/aroma/aroma';
+import { FlavorProvider } from '../providers/flavor/flavor';
 
 @NgModule({
   declarations: [
@@ -48,7 +53,12 @@ import { BeerProvider } from '../providers/beer/beer';
     StorageProvider,
     TastingProvider,
     CountryProvider,
-    BeerProvider
+    BeerProvider,
+    ColorProvider,
+    PackingProvider,
+    StyleProvider,
+    AromaProvider,
+    FlavorProvider
   ]
 })
 export class AppModule {}

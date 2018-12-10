@@ -2,13 +2,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Tasting } from '../../model/Tasting';
-import { User } from '../../model/User';
 
 @Injectable()
 export class TastingProvider {
 
   private headers = new HttpHeaders();
-  private baseUrl = "http://localhost:8080/tasting/";
+  private baseUrl = "http://localhost:8080/tasting";
 
   constructor(public http: HttpClient) {
     this.headers = this.headers.append('Accept', 'application/json');
@@ -16,7 +15,7 @@ export class TastingProvider {
 
   getTastingList(token: string) : Observable<Tasting[]>{
     this.headers = this.headers.append('key', token)
-    return this.http.get<Tasting[]>(this.baseUrl + 'user', {headers: this.headers})
+    return this.http.get<Tasting[]>(this.baseUrl, {headers: this.headers})
   }
 
   createTasting(key : string, tasting : Tasting){

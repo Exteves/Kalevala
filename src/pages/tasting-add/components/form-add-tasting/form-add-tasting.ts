@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import { CountryProvider } from '../../../../providers/country/country';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Tasting } from '../../../../model/Tasting';
+
+import { CountryProvider } from '../../../../providers/country/country';
 import { TastingProvider } from '../../../../providers/tasting/tasting';
 import { StorageProvider } from '../../../../providers/storage/storage';
+
+import { Country } from '../../../../model/Country';
+import { Tasting } from '../../../../model/Tasting';
 import { User } from '../../../../model/User';
 
 @Component({
@@ -12,22 +15,23 @@ import { User } from '../../../../model/User';
 })
 export class FormAddTastingComponent {
 
-  private tastingForm: FormGroup;
+  private tastingForm: FormGroup
   private tasting : Tasting
+  private user : User
+  private locations : Country[]
 
   constructor(
-    private location : CountryProvider,    
+    private country : CountryProvider,    
     private formBuilder: FormBuilder,
     private sommelier : TastingProvider,
     private storage : StorageProvider,
-    private user : User
     ) {
   }
 
-  ngOnInit(){
-    this.location.getCountryList()
+  public ngOnInit(){
+    this.country.getCountryList()
       .subscribe(data => {
-        console.log(data);        
+        this.locations = data
       })
 
     this.tastingForm = this.formBuilder.group({
@@ -40,11 +44,11 @@ export class FormAddTastingComponent {
 
       this.storage.get('user').then((usr) => {
         this.user = usr
-
+        console.log(this.user);        
       })
   }
 
-  addTasting(){
+  public addTasting(){
     this.tasting = this.tastingForm.value
     this.sommelier.createTasting(this.user.token, this.tasting)
       .subscribe(data => {

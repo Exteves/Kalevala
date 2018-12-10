@@ -1,4 +1,5 @@
 export interface Beer{
+    id: number,
     name: String,
     brewery: String,
     price: number,
