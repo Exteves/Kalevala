@@ -17,4 +17,7 @@ export class ColorProvider {
     return this.http.get<Color[]>(this.baseUrl, {headers: this.headers})
   }
 
+  getColor(id : number){
+    return this.http.get<Color>(this.baseUrl + '/' + id, {headers: this.headers})
+  }
 }

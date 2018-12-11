@@ -17,4 +17,7 @@ export class FlavorProvider {
     return this.http.get<Style[]>(this.baseUrl, {headers: this.headers})
   }
 
+  getFlavor(id : number){
+    return this.http.get<Style>(this.baseUrl + '/' + id, {headers: this.headers})
+  }
 }

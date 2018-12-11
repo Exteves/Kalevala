@@ -35,11 +35,11 @@ $app-direction: ltr;
 
 $colors: (
   primary:    #391004,
-  secondary:  #32db64,
+  secondary:  #ce5357,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
-  backgroundof: #edd6b6
+  backgroundof: #f2ddbe
 );
 
 
@@ -87,3 +87,17 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+@font-face {
+  font-family: 'gotic-serif-bold';
+  src: url($font-path+'/gotic-serif-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gotic-serif-heavy';
+  src: url($font-path+'/gotic-serif-heavy.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

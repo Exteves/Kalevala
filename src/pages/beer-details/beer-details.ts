@@ -17,7 +17,6 @@ export class BeerDetailsPage {
   ngOnInit(){
     this.beer = this.params.data
     console.log(this.beer);
-    
   }
 
 }

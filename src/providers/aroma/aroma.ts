@@ -17,4 +17,7 @@ export class AromaProvider {
     return this.http.get<Style[]>(this.baseUrl, {headers: this.headers})
   }
 
+  getAroma(id : number){
+    return this.http.get<Style>(this.baseUrl + '/' + id, {headers: this.headers})
+  }
 }

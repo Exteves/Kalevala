@@ -2,7 +2,7 @@ export interface Tasting{
     id: number,
     location: number,
     notes: String,
-    beerDegrees: number,
+    beerDegrees: String,
     rating: number,
     beer: number
 }

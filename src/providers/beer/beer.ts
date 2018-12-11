@@ -21,4 +21,8 @@ export class BeerProvider {
     return this.http.post<Beer>(this.baseUrl, beer)
   }
 
+  getBeer(id : number){
+    return this.http.get<Beer>(this.baseUrl + '/' + id, {headers: this.headers})
+  }
+
 }

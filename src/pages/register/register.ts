@@ -40,7 +40,9 @@ export class RegisterPage {
       data => {
         this.user.token = data['resp']
         this.storage.set('user', this.user)
-        this.navCtrl.push(TastingListPage)
+        this.navCtrl.push(TastingListPage, { token : this.user.token})
+      },
+      () => {
       }
     )
   }

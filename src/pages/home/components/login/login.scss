@@ -2,6 +2,7 @@ login {
     .item-inner{
         margin: 0px;
         padding: 0px!important;
+        background-color: color($colors, backgroundof)!important;
     }
         display: flex;
         justify-content: space-around;

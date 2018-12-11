@@ -17,4 +17,8 @@ export class CountryProvider {
     return this.http.get<Country[]>(this.baseUrl, {headers: this.headers})
   }
 
+  getCountry(id : number){
+    return this.http.get<Country>(this.baseUrl + '/' + id, {headers: this.headers})
+  }
+
 }

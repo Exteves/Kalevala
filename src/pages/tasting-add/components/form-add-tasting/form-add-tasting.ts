@@ -61,6 +61,7 @@ export class FormAddTastingComponent {
 
   public addTasting(){
     this.tasting = this.tastingForm.value
+    this.tasting.beerDegrees = parseFloat(this.tasting.beerDegrees)
     this.sommelier.createTasting(this.user.token, this.tasting)
       .subscribe(data => {
         console.log(data);

@@ -115,6 +115,10 @@ export class FormAddBeerComponent {
 
   public addBeer(){
     this.beer = this.beerForm.value
+    this.beer.price = parseFloat(this.beer.price)
+    this.beer.abv = parseFloat(this.beer.abv)
+    this.beer.ibu = parseFloat(this.beer.ibu)
+    console.log(parseFloat("11.5"));    
     console.log(this.beer);    
     this.bartender.createBeer(this.beer)
       .subscribe(data => {

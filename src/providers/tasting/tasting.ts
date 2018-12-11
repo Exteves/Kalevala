@@ -22,4 +22,8 @@ export class TastingProvider {
     this.headers = this.headers.append('key', key)
     return this.http.post<Tasting>(this.baseUrl, JSON.stringify(tasting), {headers: this.headers})
   }
+
+  getTasting(id : number){
+    return this.http.get<Tasting>(this.baseUrl + '/' + id, {headers: this.headers})
+  }
 }

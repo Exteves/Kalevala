@@ -16,4 +16,7 @@ export class PackingProvider {
     return this.http.get<Packing[]>(this.baseUrl, {headers: this.headers})
   }
 
+  getPacking(id : number){
+    return this.http.get<Packing>(this.baseUrl + '/' + id, {headers: this.headers})
+  }
 }

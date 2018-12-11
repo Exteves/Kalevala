@@ -16,5 +16,8 @@ export class StyleProvider {
   getStyleList() : Observable<Style[]>{
     return this.http.get<Style[]>(this.baseUrl, {headers: this.headers})
   }
-  
+
+  getStyle(id : number){
+    return this.http.get<Style>(this.baseUrl + '/' + id, {headers: this.headers})
+  }
 }
