@@ -10,14 +10,14 @@ export class StyleProvider {
   private baseUrl = "http://localhost:8080/style";
 
   constructor(public http: HttpClient) {
-    this.headers = this.headers.append('Accept', 'application/json');
+    this.headers = this.headers.set('Accept', 'application/json');
   }
 
   getStyleList() : Observable<Style[]>{
     return this.http.get<Style[]>(this.baseUrl, {headers: this.headers})
   }
 
-  getStyle(id : number){
+  getStyle(id : number) : Observable<Style>{
     return this.http.get<Style>(this.baseUrl + '/' + id, {headers: this.headers})
   }
 }

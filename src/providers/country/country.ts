@@ -10,14 +10,14 @@ export class CountryProvider {
   private baseUrl = "http://localhost:8080/country";
   
   constructor(private http: HttpClient) {
-    this.headers = this.headers.append('Accept', 'application/json');
+    this.headers = this.headers.set('Accept', 'application/json');
   }
   
   getCountryList() : Observable<Country[]>{
     return this.http.get<Country[]>(this.baseUrl, {headers: this.headers})
   }
 
-  getCountry(id : number){
+  getCountry(id : number) : Observable<Country>{
     return this.http.get<Country>(this.baseUrl + '/' + id, {headers: this.headers})
   }
 

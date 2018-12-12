@@ -10,6 +10,7 @@ import { Tasting } from '../../../../model/Tasting';
 import { User } from '../../../../model/User';
 import { BeerProvider } from '../../../../providers/beer/beer';
 import { Beer } from '../../../../model/Beer';
+import { NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'form-add-tasting',
@@ -29,7 +30,8 @@ export class FormAddTastingComponent {
     private formBuilder: FormBuilder,
     private sommelier : TastingProvider,
     private storage : StorageProvider,
-    private garcom : BeerProvider
+    private garcom : BeerProvider,
+    private params : NavParams
     ) {
   }
 
@@ -62,7 +64,8 @@ export class FormAddTastingComponent {
   public addTasting(){
     this.tasting = this.tastingForm.value
     this.tasting.beerDegrees = parseFloat(this.tasting.beerDegrees)
-    this.sommelier.createTasting(this.user.token, this.tasting)
+    console.log(this.tasting)    
+    this.sommelier.createTasting(this.params.data.token, this.tasting)
       .subscribe(data => {
         console.log(data);
       })

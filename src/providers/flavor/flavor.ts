@@ -10,14 +10,14 @@ export class FlavorProvider {
   private baseUrl = "http://localhost:8080/flavor";
 
   constructor(public http: HttpClient) {
-    this.headers = this.headers.append('Accept', 'application/json');
+    this.headers = this.headers.set('Accept', 'application/json');
   }
 
   getFlavorList() : Observable<Style[]>{
     return this.http.get<Style[]>(this.baseUrl, {headers: this.headers})
   }
 
-  getFlavor(id : number){
+  getFlavor(id : number) : Observable<Style>{
     return this.http.get<Style>(this.baseUrl + '/' + id, {headers: this.headers})
   }
 }

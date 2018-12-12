@@ -10,14 +10,14 @@ export class AromaProvider {
   private baseUrl = "http://localhost:8080/aroma";
 
   constructor(public http: HttpClient) {
-    this.headers = this.headers.append('Accept', 'application/json');
+    this.headers = this.headers.set('Accept', 'application/json');
   }
   
   getAromaList() : Observable<Style[]>{
     return this.http.get<Style[]>(this.baseUrl, {headers: this.headers})
   }
 
-  getAroma(id : number){
+  getAroma(id : number) : Observable<Style>{
     return this.http.get<Style>(this.baseUrl + '/' + id, {headers: this.headers})
   }
 }

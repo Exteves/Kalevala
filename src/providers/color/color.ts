@@ -10,14 +10,14 @@ export class ColorProvider {
   private baseUrl = "http://localhost:8080/color";
 
   constructor(public http: HttpClient) {
-    this.headers = this.headers.append('Accept', 'application/json');
+    this.headers = this.headers.set('Accept', 'application/json');
   }
 
   public getColorList(): Observable<Color[]>{
     return this.http.get<Color[]>(this.baseUrl, {headers: this.headers})
   }
 
-  getColor(id : number){
+  getColor(id : number) : Observable<Color>{
     return this.http.get<Color>(this.baseUrl + '/' + id, {headers: this.headers})
   }
 }

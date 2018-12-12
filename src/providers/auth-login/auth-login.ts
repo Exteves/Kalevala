@@ -13,7 +13,7 @@ export class AuthLoginProvider {
   constructor(
     private http: HttpClient
     ) {
-      this.headers = this.headers.append("Accept", 'application/json');
+      this.headers = this.headers.set("Accept", 'application/json');
   }
 
   loginIn(user:User){
@@ -26,8 +26,8 @@ export class AuthLoginProvider {
     .post(this.baseUrl + 'register', user)
   }
 
-  logout(user : User){
-    this.headers = this.headers.append("key", user.token)
+  logout(token : string){
+    this.headers = this.headers.set("key", token)
     
     return this.http
     .post(this.baseUrl + 'logout', {headers: this.headers})

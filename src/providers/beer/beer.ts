@@ -10,7 +10,7 @@ export class BeerProvider {
   private baseUrl = "http://localhost:8080/beer";
 
   constructor(public http: HttpClient) {    
-    this.headers = this.headers.append('Accept', 'application/json');
+    this.headers = this.headers.set('Accept', 'application/json');
   }
 
   getBeerList() : Observable<Beer[]>{

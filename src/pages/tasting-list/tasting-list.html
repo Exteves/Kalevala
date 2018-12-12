@@ -13,7 +13,11 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item no-padding *ngFor="let taste of getTasting()" (click)="detailTasting(beer)">
+      {{ taste?.beer }}
+    </ion-item>
+  </ion-list>
 </ion-content>
 <ion-footer>
   <ion-buttons start>

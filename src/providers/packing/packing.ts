@@ -9,14 +9,14 @@ export class PackingProvider {
   private baseUrl = "http://localhost:8080/packing";
 
   constructor(public http: HttpClient) {
-    this.headers = this.headers.append('Accept', 'application/json');
+    this.headers = this.headers.set('Accept', 'application/json');
   }
   
   getPackingList() : Observable<Packing[]>{
     return this.http.get<Packing[]>(this.baseUrl, {headers: this.headers})
   }
 
-  getPacking(id : number){
+  getPacking(id : number) : Observable<Packing>{
     return this.http.get<Packing>(this.baseUrl + '/' + id, {headers: this.headers})
   }
 }

@@ -6,6 +6,7 @@ import { User } from '../../model/User';
 import { TastingProvider } from '../../providers/tasting/tasting';
 import { TastingAddPage } from '../tasting-add/tasting-add';
 import { BeerPage } from '../beer/beer';
+import { Tasting } from '../../model/Tasting';
 
 @IonicPage()
 @Component({
@@ -15,6 +16,7 @@ import { BeerPage } from '../beer/beer';
 export class TastingListPage {
 
   private user : User;
+  private tasting : Tasting
 
   constructor(
     private navCtrl: NavController,
@@ -36,7 +38,7 @@ export class TastingListPage {
     //   this.user = usr      
       this.taste.getTastingList(this.params.data.token)
       .subscribe(data => {
-        console.log(data);        
+        this.tasting = data['resp']         
       })
     // }).catch((err) => {
     //   this.alertController.create({
@@ -52,7 +54,7 @@ export class TastingListPage {
   }
 
   public signOut(){
-    this.authLogin.logout(this.user)
+    this.authLogin.logout(this.params.data.token)
       .subscribe(data => {
         console.log(data)
         this.storage.remove('user')
@@ -61,11 +63,15 @@ export class TastingListPage {
   }
 
   public addTasting(){
-    this.navCtrl.push(TastingAddPage)
+    this.navCtrl.push(TastingAddPage, { token : this.params.data.token })
   }
 
   public beerList(){
     this.navCtrl.push(BeerPage)
+  }
+
+  public getTasting(){
+    return this.tasting
   }
 
 }
