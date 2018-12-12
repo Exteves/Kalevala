@@ -100,7 +100,7 @@ export class FormAddBeerComponent {
     this.beerForm = this.formBuilder.group({
       name: new FormControl('', Validators.compose([Validators.required])),
       brewery: new FormControl('', Validators.compose([Validators.required])),
-      price: new FormControl(0.0, Validators.compose([Validators.required])),
+      price: new FormControl('', Validators.compose([Validators.required])),
       countryOrigin: new FormControl(0, Validators.compose([Validators.required])),
       abv: new FormControl(0.0, Validators.compose([Validators.required])),
       ibu: new FormControl(0.0, Validators.compose([Validators.required])),

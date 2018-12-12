@@ -4,8 +4,11 @@ login {
         padding: 0px!important;
         background-color: color($colors, backgroundof)!important;
     }
-        display: flex;
-        justify-content: space-around;
-        min-height: 100%;
-        flex-direction: column;
+        // display: flex;
+        // justify-content: space-around;
+        // min-height: 100%;
+        // flex-direction: column;
+        ion-list{
+            border-top: 1px solid color($colors, primary)!important;
+        }
 }

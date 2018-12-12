@@ -2,4 +2,12 @@ page-home {
     ion-header{
         display: none;
     }
+    ion-content{
+        img{
+            height: 30%;
+            display: block;
+            margin: 0 auto;
+            margin-top: 10%;
+        }
+    }
 }

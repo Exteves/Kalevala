@@ -24,11 +24,15 @@ ion-content{
     background-color: color($colors, backgroundof)!important;
 }
 
-p, ion-input, ion-item, ion-title{
+p, ion-input input, ion-item, ion-title{
     color: color($colors, primary)!important;
     font-family: 'gotic-serif-heavy';
     font-size: 1em;
     text-align: center;
+}
+ion-input input{
+    border-bottom: 1px solid color($colors, primary)!important;
+    margin: 20px 0px 0px 0px!important;
 }
 
 .toolbar-title{
@@ -49,9 +53,24 @@ p, ion-input, ion-item, ion-title{
 
 h1, h2, h3, h4{
     font-family: 'gotic-serif-bold';
-    font-size: 2em;
     color: color($colors, secondary)!important;
     text-align: center;
+}
+
+h1{
+    font-size: 2em;
+}
+
+h2{
+    font-size: 1.4em;
+}
+
+h3{
+    font-size: 1.2em;
+}
+
+h4{
+    font-size: 1.1em;
 }
 
 .item-inner{
@@ -59,3 +78,20 @@ h1, h2, h3, h4{
     padding: 0px!important;
     background-color: color($colors, backgroundof)!important;
 }
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: color($colors, primary)!important;
+    opacity: 0.5!important;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: color($colors, primary)!important;
+    opacity: 0.5!important;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: color($colors, primary)!important;
+    opacity: 0.5!important;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: color($colors, primary)!important;
+    opacity: 0.5!important;
+  }
