@@ -14,6 +14,8 @@ import { FlavorProvider } from '../../../providers/flavor/flavor';
 import { Color } from '../../../model/Color';
 import { Style } from '../../../model/Style';
 import { Packing } from '../../../model/Packing';
+import { AlertController, NavController } from 'ionic-angular';
+import { BeerPage } from '../../beer/beer';
 
 @Component({
   selector: 'form-add-beer',
@@ -38,7 +40,9 @@ export class FormAddBeerComponent {
     private packingProv: PackingProvider,
     private styleProv: StyleProvider,
     private aromaProv: AromaProvider,
-    private flavorProv: FlavorProvider
+    private flavorProv: FlavorProvider,
+    private alertCtrl: AlertController,
+    private navCtrl: NavController
     ) {
   }
 
@@ -122,7 +126,13 @@ export class FormAddBeerComponent {
     console.log(this.beer);    
     this.bartender.createBeer(this.beer)
       .subscribe(data => {
-        console.log(data);
+        let alert = this.alertCtrl.create({
+          title: 'Cheers!',
+          subTitle: 'Cerveja adicionada com sucesso!',
+          buttons: ['Fechar']
+        });
+        alert.present();
+        this.navCtrl.push(BeerPage)
       })
   }
 }

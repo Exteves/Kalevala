@@ -67,18 +67,21 @@
     </ion-item>
 
     <ion-item no-lines no-padding no-margin>
+      <ion-label>Estilo</ion-label>
       <ion-select formControlName="style">
         <ion-option *ngFor="let style of getStyles()" [value]="style.id">{{ style.name }}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item no-lines no-padding no-margin>
+      <ion-label>Aroma</ion-label>
       <ion-select formControlName="aroma">
         <ion-option *ngFor="let aroma of getAromas()" [value]="aroma.id">{{ aroma.name }}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item no-lines no-padding no-margin>
+      <ion-label>Sabor</ion-label>
       <ion-select formControlName="flavor">
         <ion-option *ngFor="let flavor of getFlavors()" [value]="flavor.id">{{ flavor.name }}</ion-option>
       </ion-select>

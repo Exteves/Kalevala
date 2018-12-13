@@ -10,7 +10,8 @@ import { Tasting } from '../../../../model/Tasting';
 import { User } from '../../../../model/User';
 import { BeerProvider } from '../../../../providers/beer/beer';
 import { Beer } from '../../../../model/Beer';
-import { NavParams } from 'ionic-angular';
+import { NavParams, NavController, AlertController } from 'ionic-angular';
+import { TastingListPage } from '../../../tasting-list/tasting-list';
 
 @Component({
   selector: 'form-add-tasting',
@@ -31,7 +32,9 @@ export class FormAddTastingComponent {
     private sommelier : TastingProvider,
     private storage : StorageProvider,
     private garcom : BeerProvider,
-    private params : NavParams
+    private params : NavParams,
+    private navCtrl: NavController,
+    private alertCtrl: AlertController
     ) {
   }
 
@@ -56,8 +59,7 @@ export class FormAddTastingComponent {
     });
 
       this.storage.get('user').then((usr) => {
-        this.user = usr    
-        console.log(this.user);
+        this.user = usr
       })
   }
 
@@ -67,8 +69,22 @@ export class FormAddTastingComponent {
     console.log(this.tasting)    
     this.sommelier.createTasting(this.params.data.token, this.tasting)
       .subscribe(data => {
-        console.log(data);
-      })
+        let alert = this.alertCtrl.create({
+          title: 'Yo-ho-ho!',
+          subTitle: 'Degustação adicionada com sucesso!',
+          buttons: ['Fechar']
+        });
+        alert.present();
+        this.navCtrl.push(TastingListPage, { token : this.user.token})
+      },err => {
+          let alert = this.alertCtrl.create({
+            title: 'Que pena!',
+            subTitle: 'Não foi possível adicionar sua degustação.',
+            buttons: ['Fechar']
+          });
+          alert.present();
+        }
+      )
   }
 
   public getBeers(){

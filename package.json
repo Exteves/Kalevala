@@ -38,7 +38,6 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-sqlite-storage": {}
     }
   }
 }

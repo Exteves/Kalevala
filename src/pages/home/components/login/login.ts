@@ -16,6 +16,7 @@ export class LoginComponent {
   private loginForm : FormGroup;
   private showTopBar = new EventEmitter<boolean>();
   private user : User;
+  private validUser : Boolean
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,6 +25,7 @@ export class LoginComponent {
     private storage: StorageProvider,
     private alertController: AlertController
   ) {
+    this.validUser = true
   }
 
   ngOnInit(){
@@ -40,36 +42,24 @@ export class LoginComponent {
       data => {
         this.user.token = data['resp']
         if(this.user.token){
+          this.validUser = true
+          this.storage.set('user', this.user)
           this.navCtrl.push(TastingListPage, { token : this.user.token})
         }else{
-          this.alertController.create({
-            title: 'Deu ruim',
-            message: 'Não foi possível efetuar o login',
-            buttons: [{
-              text: 'Tentar novamente',
-              role: 'cancel'
-            }]
-          }).present()
+          this.validUser = false
         }
-      },
-      complete => {
-        this.storage.set('user', this.user)
+      },err => {
+        this.validUser = false
       }
-    ),
-    error => {
-      this.alertController.create({
-        title: 'Erro',
-        message: 'Azedou no login',
-        buttons: [{
-          text: 'Tentar novamente',
-          role: 'cancel'
-        }]
-      }).present()
-    };
+    )
   }
 
   signUp(){
     this.navCtrl.push(RegisterPage)
+  }
+
+  public invalidLogin(){
+    return this.validUser
   }
 
 }

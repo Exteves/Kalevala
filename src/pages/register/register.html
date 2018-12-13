@@ -20,14 +20,23 @@
       <ion-item no-padding>
         <ion-input type="password" placeholder="Senha" formControlName="passwd"></ion-input>
       </ion-item>
+
+      <ion-item
+        no-padding
+        no-margin
+        no-lines>
+        <p margin-top *ngIf="!invalidRegister()" text-wrap>
+          Você parece estar bêbado! <br>Esses dados são inválidos Hahaha
+        </p>
+        <p text-wrap *ngIf="(registerForm.get('email').hasError('required') || registerForm.get('passwd').hasError('required')) && !invalidRegister()">Sei que está com sede, mas não esqueça de prencher tudo!</p>
+      </ion-item>
   
       <ion-item margin-top no-padding no-lines>
         <button
           ion-button
           type="submit"
           full
-          color="secondary"
-          [disabled]="registerForm.invalid">
+          color="secondary">
           Cadastrar
         </button>
       </ion-item>

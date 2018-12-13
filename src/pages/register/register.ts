@@ -16,12 +16,15 @@ export class RegisterPage {
 
   private registerForm: FormGroup
   private user: User
+  private validUser : Boolean
+
   constructor(
     public navCtrl: NavController,
     private formBuilder: FormBuilder,
     private authProvider: AuthLoginProvider,
     private storage: StorageProvider
     ) {
+      this.validUser = true
   }
 
   ngOnInit(){
@@ -39,12 +42,22 @@ export class RegisterPage {
     .subscribe(
       data => {
         this.user.token = data['resp']
-        this.storage.set('user', this.user)
-        this.navCtrl.push(TastingListPage, { token : this.user.token})
+        if(this.user.token){
+          this.validUser = true
+          this.storage.set('user', this.user)
+          this.navCtrl.push(TastingListPage, { token : this.user.token})
+        }else{
+          this.validUser = false
+        }
       },
-      () => {
+      err => {
+        this.validUser = false
       }
     )
+  }
+
+  public invalidRegister(){
+    return this.validUser
   }
 
 }

@@ -7,6 +7,7 @@ import { TastingProvider } from '../../providers/tasting/tasting';
 import { TastingAddPage } from '../tasting-add/tasting-add';
 import { BeerPage } from '../beer/beer';
 import { Tasting } from '../../model/Tasting';
+import { TastingDetailsPage } from '../tasting-details/tasting-details';
 
 @IonicPage()
 @Component({
@@ -72,6 +73,10 @@ export class TastingListPage {
 
   public getTasting(){
     return this.tasting
+  }
+
+  public detailTasting(taste : Tasting){
+    this.navCtrl.push(TastingDetailsPage, taste)
   }
 
 }

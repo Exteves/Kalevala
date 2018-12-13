@@ -9,21 +9,6 @@
       </ion-input>
     </ion-item>
 
-    <ion-item
-      class="validation"
-      no-padding
-      no-margin
-      no-lines
-      *ngIf="
-      loginForm.controls.email.invalid
-      && loginForm.controls.email.touched">
-      <p *ngIf="loginForm.get('email').hasError('email')
-      && !loginForm.get('email').hasError('error')">
-        Você parece estar bêbado! Esse e-mail é invaĺido! Hahaha
-      </p>
-      <p *ngIf="loginForm.get('email').hasError('required')">Não se esqueça dese campo!  </p>
-    </ion-item>
-
     <ion-item no-lines no-padding>
       <ion-input
         type="password"
@@ -33,17 +18,15 @@
       </ion-input>
     </ion-item>
 
-    <!-- <ion-item
-      class="validation"
+    <ion-item
       no-padding
-      no-lines
-      *ngIf="loginForm.controls.password.invalid
-      && loginForm.controls.password.touched">
-      <p *ngIf="loginForm.get('senha').hasError('minlength')
-        && !loginForm.get('senha').hasError('required')
-        ">Senha invalida (minimo 6 caracteres)</p>
-      <p *ngIf="loginForm.get('password').hasError('required')">Campo obrigatorio</p>
-    </ion-item> -->
+      no-margin
+      no-lines>
+      <p margin-top *ngIf="!invalidLogin()" text-wrap>
+        Você parece estar bêbado! <br>O Login ou senha são inválidos Hahaha
+      </p>
+      <p text-wrap *ngIf="(loginForm.get('email').hasError('required') || loginForm.get('passwd').hasError('required')) && !invalidLogin()">Sei que está com sede, mas não esqueça de prencher tudo!</p>
+    </ion-item>
 
     <ion-item no-padding no-margin no-lines>
       <button

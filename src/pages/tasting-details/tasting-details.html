@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>TastingDetails</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content text-center padding>
+  <ion-grid>
+    <ion-row margin-vertical>
+      <ion-col col-12>
+        <h2>{{ beer?.name }} <ion-icon ios="ios-beer" md="md-beer"></ion-icon></h2>
+      </ion-col>
+    </ion-row>
+    <ion-row margin-vertical>
+      <ion-col col-6>
+        <h3>País de origem</h3>
+        <p>{{ country?.name }}</p>        
+      </ion-col>
+      <ion-col col-6>
+        <h3>Avaliação</h3>
+        <p>{{ getRating() }} <ion-icon ios="ios-star" md="md-star"></ion-icon></p>        
+      </ion-col>
+    </ion-row>
+    <ion-row margin-vertical>
+      <ion-col col-12>
+        <h3>Temperatura em celsius</h3>
+        <p>{{ getBeerDegrees() }} <ion-icon ios="ios-thermometer" md="md-thermometer"></ion-icon></p>
+      </ion-col>
+    </ion-row>
+    <ion-row margin-vertical>
+      <ion-col col-12>
+        <h3>Anotações</h3>
+        <p>{{ getNotes() }} <ion-icon ios="ios-create" md="md-create"></ion-icon></p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

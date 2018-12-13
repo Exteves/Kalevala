@@ -1,6 +1,7 @@
 <form (ngSubmit)="addTasting()" [formGroup]="tastingForm">
   <ion-list>
     <ion-item no-lines no-padding no-margin>
+      <ion-label>País da degustação</ion-label>
       <ion-select formControlName="location">
         <ion-option *ngFor="let location of getLocations()" [value]="location.id">{{ location.name }}</ion-option>
       </ion-select>
@@ -25,12 +26,14 @@
     </ion-item>
     
     <ion-item no-lines no-padding no-margin>
+      <ion-label>Avaliação</ion-label>
       <ion-select formControlName="rating">
         <ion-option *ngFor="let rating of getRatings()" [value]="rating">{{ rating }}</ion-option>
       </ion-select>      
     </ion-item>
 
     <ion-item no-lines no-padding no-margin>
+      <ion-label>Cerveja</ion-label>
       <ion-select formControlName="beer"> 
         <ion-option *ngFor="let beer of getBeers()" [value]="beer.id">{{ beer.name }}</ion-option>       
       </ion-select> 
