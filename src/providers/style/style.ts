@@ -20,4 +20,8 @@ export class StyleProvider {
   getStyle(id : number) : Observable<Style>{
     return this.http.get<Style>(this.baseUrl + '/' + id, {headers: this.headers})
   }
+
+  deleteStyle(id : number){
+    return this.http.delete(this.baseUrl + '/' + id, {headers : this.headers})
+  }
 }

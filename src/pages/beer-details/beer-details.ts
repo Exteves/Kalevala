@@ -11,6 +11,8 @@ import { StyleProvider } from '../../providers/style/style';
 import { Style } from '../../model/Style';
 import { AromaProvider } from '../../providers/aroma/aroma';
 import { FlavorProvider } from '../../providers/flavor/flavor';
+import { BeerProvider } from '../../providers/beer/beer';
+import { BeerPage } from '../beer/beer';
 
 @IonicPage()
 @Component({
@@ -35,7 +37,8 @@ export class BeerDetailsPage {
     private packingProv : PackingProvider,
     private styleProv : StyleProvider,
     private aromaProv : AromaProvider,
-    private flavorProv : FlavorProvider
+    private flavorProv : FlavorProvider,
+    private beerProv : BeerProvider
     ) {
   }
 
@@ -72,6 +75,14 @@ export class BeerDetailsPage {
       .subscribe(data => {
         this.flavor = data['resp']
       })   
+  }
+
+  public dropBeer(){
+    this.beerProv.deleteBeer(this.beer.id)
+      .subscribe(data => {
+        console.log(data);
+        this.navCtrl.popTo(BeerPage)
+      })
   }
 
 }

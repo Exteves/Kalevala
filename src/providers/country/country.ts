@@ -21,4 +21,8 @@ export class CountryProvider {
     return this.http.get<Country>(this.baseUrl + '/' + id, {headers: this.headers})
   }
 
+  deleteCountry(id : number){
+    return this.http.delete(this.baseUrl + '/' + id, {headers : this.headers})
+  }
+
 }

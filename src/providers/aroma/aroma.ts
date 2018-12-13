@@ -20,4 +20,8 @@ export class AromaProvider {
   getAroma(id : number) : Observable<Style>{
     return this.http.get<Style>(this.baseUrl + '/' + id, {headers: this.headers})
   }
+
+  deleteAroma(id : number){
+    return this.http.delete(this.baseUrl + '/' + id, {headers : this.headers})
+  }
 }

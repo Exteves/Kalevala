@@ -19,4 +19,8 @@ export class PackingProvider {
   getPacking(id : number) : Observable<Packing>{
     return this.http.get<Packing>(this.baseUrl + '/' + id, {headers: this.headers})
   }
+
+  deletePacking(id : number){
+    return this.http.delete(this.baseUrl + '/' + id, {headers : this.headers})
+  }
 }

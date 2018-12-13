@@ -20,4 +20,8 @@ export class ColorProvider {
   getColor(id : number) : Observable<Color>{
     return this.http.get<Color>(this.baseUrl + '/' + id, {headers: this.headers})
   }
+
+  deleteColor(id: number){
+    return this.http.delete(this.baseUrl + '/' + id, {headers : this.headers})
+  }
 }

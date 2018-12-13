@@ -25,4 +25,8 @@ export class BeerProvider {
     return this.http.get<Beer>(this.baseUrl + '/' + id, {headers: this.headers})
   }
 
+  deleteBeer(id : number){
+    return this.http.delete(this.baseUrl + '/' + id, {headers : this.headers})
+  }
+  
 }

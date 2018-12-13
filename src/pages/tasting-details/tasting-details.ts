@@ -5,6 +5,8 @@ import { CountryProvider } from '../../providers/country/country';
 import { Country } from '../../model/Country';
 import { Beer } from '../../model/Beer';
 import { BeerProvider } from '../../providers/beer/beer';
+import { TastingProvider } from '../../providers/tasting/tasting';
+import { TastingListPage } from '../tasting-list/tasting-list';
 
 @IonicPage()
 @Component({
@@ -21,7 +23,8 @@ export class TastingDetailsPage {
     public navCtrl: NavController,
     public params: NavParams,
     private countryProv: CountryProvider,
-    private garcom : BeerProvider) {
+    private garcom : BeerProvider,
+    private tastingProv : TastingProvider) {
   }
 
   ngOnInit(){
@@ -49,6 +52,14 @@ export class TastingDetailsPage {
 
   public getBeerDegrees(){
     return this.taste.beerDegrees
+  }
+
+  public dropTasting(){
+    this.tastingProv.deleteTasting(this.taste.id)
+      .subscribe(data => {
+        console.log(data)
+        this.navCtrl.popTo(TastingListPage)        
+      }) 
   }
 
 }

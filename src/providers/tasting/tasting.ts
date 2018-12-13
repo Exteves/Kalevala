@@ -26,4 +26,8 @@ export class TastingProvider {
   getTasting(id : number) : Observable<Tasting>{
     return this.http.get<Tasting>(this.baseUrl + '/' + id, {headers: this.headers})
   }
+
+  deleteTasting(id : number){
+    return this.http.delete(this.baseUrl + '/' + id, {headers : this.headers})
+  }
 }

@@ -20,4 +20,8 @@ export class FlavorProvider {
   getFlavor(id : number) : Observable<Style>{
     return this.http.get<Style>(this.baseUrl + '/' + id, {headers: this.headers})
   }
+
+  deleteFlavor(id : number){
+    return this.http.delete(this.baseUrl + '/' + id, {headers : this.headers})
+  }
 }
